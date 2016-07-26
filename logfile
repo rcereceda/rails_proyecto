@@ -1,0 +1,65 @@
+LOG:  database system was shut down at 2016-07-19 21:54:32 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-07-21 22:02:27 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-07-22 22:01:29 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "bookings" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"bookings"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
+ERROR:  relation "providers" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"providers"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
+ERROR:  relation "slots" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"slots"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
+ERROR:  relation "states" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"states"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
+ERROR:  relation "surveys" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"surveys"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
