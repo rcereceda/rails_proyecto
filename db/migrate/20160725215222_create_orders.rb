@@ -7,7 +7,6 @@ class CreateOrders < ActiveRecord::Migration
       t.references :user, index: true, foreign_key: true
       t.references :state, index: true, foreign_key: true
       t.references :slot, index: true, foreign_key: true
-      t.references :service, index: true, foreign_key: true
 
       t.timestamps null: false
     end
