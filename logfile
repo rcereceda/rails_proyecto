@@ -80,3 +80,69 @@ LOG:  database system was shut down at 2016-07-26 22:02:17 CLT
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  relation "user" does not exist
+STATEMENT:  ALTER TABLE "user" ALTER COLUMN "phone" TYPE character varying
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-07-27 22:06:22 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "bookings" does not exist at character 13
+STATEMENT:  DELETE FROM "bookings"
+ERROR:  relation "bookings" does not exist at character 13
+STATEMENT:  DELETE FROM "bookings"
+ERROR:  relation "bookings" does not exist at character 13
+STATEMENT:  DELETE FROM "bookings"
+ERROR:  relation "bookings" does not exist at character 13
+STATEMENT:  DELETE FROM "bookings"
+ERROR:  relation "providers" does not exist at character 13
+STATEMENT:  DELETE FROM "providers"
+ERROR:  relation "providers" does not exist at character 13
+STATEMENT:  DELETE FROM "providers"
+ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+STATEMENT:  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2016-07-28 15:34:17', '2016-07-28 15:34:17', 298486374)
+ERROR:  duplicate key value violates unique constraint "index_users_on_email"
+DETAIL:  Key (email)=() already exists.
+STATEMENT:  INSERT INTO "users" ("created_at", "updated_at", "id") VALUES ('2016-07-28 15:34:17', '2016-07-28 15:34:17', 298486374)
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-07-28 14:51:15 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-07-28 22:09:51 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-02 22:01:46 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 1186) running in data directory "/usr/local/var/postgres"?
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-03 22:07:51 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

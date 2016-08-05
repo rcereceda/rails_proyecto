@@ -4,8 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  email: rcereced@gmail.com
+  name: Rodrigo Cereceda
+  address: Enrique Mac Iver 524
+  phone: 995577793
+  is_provider: true
 # column: value
 #
-two: {}
+two:
+  email: rodrigo@desafiolatam.com
+  name: Rodrigo Cereceda
+  address: Enrique Mac Iver 524
+  phone: 995577793
+  is_provider: true
 #  column: value
