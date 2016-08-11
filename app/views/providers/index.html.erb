@@ -14,7 +14,7 @@
           <img src="http://placehold.it/320x150" alt="">
           <div class="caption">
               <h4 class="pull-right">$24.99</h4>
-              <h4><a href="#"><%= provider.name %></a></h4>
+              <h4><a href="#"><%= link_to provider.name, provider_path(provider.id) %></a></h4>
               <ul>
                 <% provider.services.each do |service| %>
                 <li><%= service.name %></li>
