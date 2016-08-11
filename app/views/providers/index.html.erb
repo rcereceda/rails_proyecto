@@ -1,0 +1,38 @@
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Tú búsqueda</h3>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Providers -->
+<div class="row">
+  <% @providers.each do |provider| %>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="thumbnail">
+          <img src="http://placehold.it/320x150" alt="">
+          <div class="caption">
+              <h4 class="pull-right">$24.99</h4>
+              <h4><a href="#"><%= provider.name %></a></h4>
+              <ul>
+                <% provider.services.each do |service| %>
+                <li><%= service.name %></li>
+                <% end %>
+              </ul>
+          </div>
+          <div class="ratings">
+              <p class="pull-right">15 reviews</p>
+              <p>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+              </p>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!-- /.row -->

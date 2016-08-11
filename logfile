@@ -146,3 +146,27 @@ LOG:  received smart shutdown request
 LOG:  autovacuum launcher shutting down
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-04 22:05:09 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  insert or update on table "user_services" violates foreign key constraint "fk_rails_061e6d355b"
+DETAIL:  Key (service_id)=(1) is not present in table "services".
+STATEMENT:  INSERT INTO "user_services" ("service_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-05 21:42:31 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-10 22:00:15 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections

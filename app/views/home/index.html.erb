@@ -13,17 +13,25 @@
                 <li><%= link_to service.name, "#", 'data-value' => service.id, class:"no-follow" %></li>
               <% end %>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to "Todos", services_index_path, , class:"no-follow" %></li>
+                <li><%= link_to "Todos", "#", class:"no-follow" %></li>
             </ul>
           </div>
 
           <input type="text" class="form-control input-lg" placeholder="Ingresa una comuna">
           
           <span class="input-group-btn">
-            <button class="btn btn-primary input-lg" type="button">Buscar!</button>
+            <%= link_to "Buscar!", providers_path(:address => "Mur"), class:"btn btn-primary btn-lg" %>
           </span>
 
         </div><!-- /input-group -->
+        
+      	<%= form_tag providers_path, :method => 'get', class:'input-group' do %>
+      		<%= select_tag 'service', options_from_collection_for_select(@services, 'id', 'name'), class:'btn btn-default dropdown-toggle input-lg' %>
+        	<%= text_field_tag 'address', nil, class:'form-control input-lg' %>
+        	<span class="input-group-btn">
+        		<%= submit_tag 'Buscar', class:'btn btn-primary btn-lg' %>
+        	</span>
+        <% end %>
       </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
 </header>
@@ -52,6 +60,7 @@
                 <li><%= service.name %></li>
                 <% end %>
               </ul>
+              <p><%= provider.address %></p>
           </div>
           <div class="ratings">
               <p class="pull-right">15 reviews</p>
@@ -79,6 +88,6 @@
     $('.no-follow').on('click', function(event)
     {
       event.preventDefault();
-    })
+    });
   });
 </script>
