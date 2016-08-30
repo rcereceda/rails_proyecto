@@ -1,4 +1,39 @@
-<p id="notice"><%= notice %></p>
+<section class="row">
+  <div class="col-md-6 col-md-offset-3">
+  	<section class="panel panel-default">
+  		<section class="panel-heading">
+  			<h3 class="panel-title">
+          <%= current_user.is_provider? ? "Pedido enviado por #{@order.user_name}" : "Pedido enviado a #{@order.provider_name}" %>
+  			</h3>
+  		</section>
+  		<section class="panel-body">
+  			<p>
+  			  <strong>Date:</strong>
+  			  <%= @order.date.strftime("%d/%m/%Y a las %I:%M %p") %>
+  			</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  			<p>
+  			  <strong>Description:</strong>
+  			  <%= @order.description %>
+  			</p>
+
+  			<p>
+  			  <strong>Information:</strong>
+  			  <%= @order.information %>
+  			</p>
+
+        <p>
+          <strong>Servicios:</strong>
+          <% @order.order_services.each do |service| %>
+            <span>#<%= service.user_service.service_name %></span>
+          <% end %>
+        </p>
+
+        <hr>
+				
+        <%= link_to 'Cerrar', current_user.is_provider? ? provider_orders_path(current_user.id)  : user_orders_path(current_user.id), class:'btn btn-success' %>
+        
+			</section>
+		</section>
+	</div>
+</section>

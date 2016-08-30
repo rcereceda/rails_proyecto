@@ -8,5 +8,5 @@ class UserService < ActiveRecord::Base
   has_many :order_services
   has_many :orders, through: :order_services
 
-  #scope :has_service, ->(id) { where(service_id: id) }
+  delegate :name, to: :service, prefix: true, allow_nil: true
 end

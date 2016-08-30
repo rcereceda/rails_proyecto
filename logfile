@@ -170,3 +170,105 @@ LOG:  database system was shut down at 2016-08-10 22:00:15 CLT
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+LOG:  database system was shut down at 2016-08-11 22:02:25 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-12 21:45:31 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-17 22:08:30 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-18 22:02:26 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "rails_store_development" does not exist
+ERROR:  column "products.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "products".* FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY categories.name
+ERROR:  column "products.name" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "products"."name" FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY categories.name
+ERROR:  column "products.name" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "products"."name" FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY "products"."category_id"
+ERROR:  column "products.name" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "products"."name", categories.name FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY categories.name
+ERROR:  column "products.name" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT products.name, categories.name FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY categories.name
+ERROR:  column "products.name" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT products.name, categories.name FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY categories.name
+ERROR:  column "products.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "products".* FROM "products" INNER JOIN "categories" ON "categories"."id" = "products"."category_id" GROUP BY categories.name
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-22 22:03:15 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-23 21:59:30 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-24 22:00:09 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  column users.provider_id does not exist at character 94
+HINT:  Perhaps you meant to reference the column "orders.provider_id".
+STATEMENT:  SELECT "users".* FROM "users" INNER JOIN "orders" ON "orders"."user_id" = "users"."id" WHERE "users"."provider_id" = 98
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-25 22:00:16 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  syntax error at or near "FROM" at character 28
+STATEMENT:  UPDATE state SET "pending" FROM orders WHERE state = "rejected";
+ERROR:  column "state" does not exist at character 43
+HINT:  Perhaps you meant to reference the column "orders.date".
+STATEMENT:  UPDATE orders SET state = "pending" WHERE state = "rejected";
+ERROR:  column "pending" does not exist at character 27
+STATEMENT:  UPDATE orders SET state = "pending";
+ERROR:  column "pending" does not exist at character 25
+STATEMENT:  UPDATE orders SET state="pending";
+ERROR:  column "pending" does not exist at character 27
+STATEMENT:  UPDATE orders SET state = "pending";
+ERROR:  column "pending" does not exist at character 27
+STATEMENT:  UPDATE orders SET state = pending;
+ERROR:  column "state" of relation "orders" does not exist at character 19
+STATEMENT:  UPDATE orders SET state = 'pending';
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2016-08-29 22:11:54 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

@@ -1,4 +1,6 @@
-<%= form_for([@provider, @order]) do |f| %>
+<%= form_for([@provider, setup_order(@order, @provider)], 
+    :url => @order.persisted? ? provider_order_path : provider_orders_path ) do |f| %>
+
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -10,8 +12,45 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.hidden_field :provider_id, value: @provider.id %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :date %><br>
+    <div class='input-group date' id='datetimepicker'>
+      <%= f.date_field :date, class:'form-control' %>
+      <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
   </div>
+
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :information %><br>
+    <%= f.text_area :information, class:'form-control' %>
+  </div>
+
+  <hr>
+
+  <%= f.fields_for :order_services do |builder| %>
+    <%= render "order_service_fields", :f => builder %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit 'Enviar', class:'btn btn-success' %>
+  </div>
+
 <% end %>
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker').datetimepicker({
+        locale: 'es'
+    });
+  });
+</script>

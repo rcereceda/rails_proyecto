@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   has_many :orders
   # has_many :providers, through: :orders
 
-  scope :providers, ->  { where(is_provider: true) }
+  scope :providers, -> { where(is_provider: true) }
   scope :on_address, ->(address) { where('address LIKE ?', "%#{address}%") }
   scope :has_service, ->(service_id) { joins(:user_services).where('user_services.service_id = ?', service_id) }
+
 end

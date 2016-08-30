@@ -2,10 +2,19 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
+  resources :users, only: [:show] do
+    resources :orders, only: [:index, :destroy] do
+      put :reject #-> /order/:id/reject
+    end
+  end
 
   resources :providers, only: [:index, :show] do
-    resources :orders, only: [:new, :create]
+    resources :orders, only: [:index, :new, :create, :show, :edit, :update]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
