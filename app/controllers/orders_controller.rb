@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @survey = @order.survey || Survey.new
   end
 
   # GET /orders/new
@@ -75,10 +76,16 @@ class OrdersController < ApplicationController
   # AASM states
   def confirm
     @order.confirm!
+    respond_to do |format|
+      format.html { redirect_to provider_orders_path(current_user.id), notice: 'La orden ha sido confirmada' }
+    end
   end
 
   def finish
     @order.finish!
+    respond_to do |format|
+      format.html { redirect_to provider_orders_path(current_user.id), notice: 'La orden ha sido terminada' }
+    end
   end
 
   def reject

@@ -1,0 +1,36 @@
+<%= form_for([@order, @survey]) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :comments, "¿Qué te ha parecido el servicio?" %><br>
+    <%= f.text_area :comments, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :stars, "¿Qué nota le pondrías?" %><br>
+    <div id="stars"></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Votar", class:'btn btn-primary' %>
+  </div>
+<% end %>
+
+<hr>
+
+<script>
+  $('#stars').raty({
+    path: '/assets/',
+    scoreName: 'survey[stars]'
+  });
+</script>

@@ -42,7 +42,8 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.submit 'Enviar', class:'btn btn-success' %>
+    <%= f.submit 'Guardar', class:'btn btn-success' %>
+    <%= link_to 'Volver', current_user.is_provider? ? provider_orders_path(current_user.id)  : user_orders_path(current_user.id), class:'btn btn-default' %>
   </div>
 
 <% end %>

@@ -5,6 +5,7 @@
     <tr>
       <th>¿Cuándo?</th>
       <th>Servicio(s)</th>
+      <th>Descripción</th>
       <th>Estado</th>
       <th colspan="3"></th>
     </tr>
@@ -19,15 +20,33 @@
             <span>#<%= service.user_service.service_name %></span>
           <% end %>
         </td>
+        <td><%= order.description %></td>
         <td><%= order.aasm_state %></td>
-        <% if (order.pending? || order.confirmed?) && !current_user.is_provider? %>
-          <td><%= link_to 'Ver', edit_provider_order_path(order.provider_id, order.id) %></td>
-          <td>
-            <%= link_to 'Cancelar', user_order_reject_path(current_user.id, order.id), method: :put, data: { confirm: '¿Seguro que quieres cancelar?' } %>
-          </td>
-        <% else %>
+        <% if current_user.is_provider? %>
           <td><%= link_to 'Ver', provider_order_path(current_user.id, order.id) %></td>
-          <td></td>
+          <% if order.pending? %>
+            <td>
+              <%= link_to 'Confirmar', user_order_confirm_path(current_user.id, order.id), method: :put, data: { confirm: '¿Seguro que quieres confirmar?' } %>
+            </td>
+          <% elsif order.confirmed? %>
+            <td>
+              <%= link_to 'Terminar', user_order_finish_path(current_user.id, order.id), method: :put, data: { confirm: '¿Ya has terminado esta orden?' } %>
+            </td>
+          <% else %>
+            <td></td>
+          <% end %>
+        <% else %>
+          <% if order.pending? || order.confirmed? %>
+            <td>
+              <%= link_to 'Ver', edit_provider_order_path(order.provider_id, order.id) %>
+            </td>
+            <td>
+              <%= link_to 'Cancelar', user_order_reject_path(current_user.id, order.id), method: :put, data: { confirm: '¿Seguro que quieres cancelar?' } %>
+            </td>
+          <% else %>
+            <td><%= link_to 'Ver', provider_order_path(current_user.id, order.id) %></td>
+            <td></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>

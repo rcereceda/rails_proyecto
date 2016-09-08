@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
   has_many :user_services
   has_many :services, through: :user_services
   
-  has_many :orders
-  # has_many :providers, through: :orders
+  has_many :orders, -> { order(aasm_state: :asc) }
+  has_many :providers, through: :orders
 
   scope :providers, -> { where(is_provider: true) }
   scope :on_address, ->(address) { where('address LIKE ?', "%#{address}%") }

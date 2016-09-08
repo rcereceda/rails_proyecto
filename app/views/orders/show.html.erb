@@ -30,6 +30,14 @@
         </p>
 
         <hr>
+
+        <% if @order.finished? %>
+          <% if @order.survey.present? %>
+            <%= render 'surveys/show' %>
+          <% elsif !current_user.is_provider? %>
+            <%= render 'surveys/form' %>
+          <% end %>
+        <% end %>
 				
         <%= link_to 'Cerrar', current_user.is_provider? ? provider_orders_path(current_user.id)  : user_orders_path(current_user.id), class:'btn btn-success' %>
         

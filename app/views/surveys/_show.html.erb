@@ -1,0 +1,20 @@
+<p>
+  <strong><%= current_user.is_provider ? "Opinión del usuario sobre tu servicio" : "¿Qué te ha parecido el servicio?" %></strong>
+</p>
+<p><%= @survey.comments %></p>
+<p>
+  <strong><%= current_user.is_provider ? "Nota del usuario sobre tu servicio" : "¿Qué nota le pondrías?" %></strong>
+</p>
+<div id="stars" data-score=<%= @survey.stars %>></div>
+
+<hr>
+
+<script>
+	$('#stars').raty({
+		path: '/assets/',
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		}
+	});
+</script>

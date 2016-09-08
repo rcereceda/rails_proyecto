@@ -10,12 +10,19 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :orders, only: [:index, :destroy] do
       put :reject #-> /order/:id/reject
+      put :confirm #-> /order/:id/confirm
+      put :finish #-> /order/:id/finish
     end
   end
 
   resources :providers, only: [:index, :show] do
     resources :orders, only: [:index, :new, :create, :show, :edit, :update]
   end
+
+  resources :orders, only: :show do
+    resources :surveys, only: [:new, :create, :show]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
