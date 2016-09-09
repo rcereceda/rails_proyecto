@@ -1,5 +1,5 @@
 class DropState < ActiveRecord::Migration
   def change
-    drop_table :states
+    #drop_table :states
   end
 end
