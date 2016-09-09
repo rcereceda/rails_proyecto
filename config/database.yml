@@ -20,6 +20,8 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  user: ubuntu
+  password: <%= ENV["SERVICESAPP_DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
@@ -82,4 +84,4 @@ production:
   <<: *default
   database: rails_project_production
   username: rails_project
-  password: <%= ENV['RAILS_PROJECT_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SERVICESAPP_DATABASE_PASSWORD'] %>
