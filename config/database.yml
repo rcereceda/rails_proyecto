@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: rails_project_production
-  username: rails_project
+  username: ubuntu
   password: <%= ENV['SERVICESAPP_DATABASE_PASSWORD'] %>
