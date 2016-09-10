@@ -19,7 +19,7 @@ class ProvidersController < ApplicationController
   def show
   	@surveys = Survey.provider_surveys(@provider.id)
 
-    if @orders.blank?
+    if @surveys.blank?
       @avg_stars = 0
     else
       @avg_stars = @surveys.average(:stars).round(2)

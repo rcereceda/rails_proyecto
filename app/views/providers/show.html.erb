@@ -11,7 +11,7 @@
   <div class="col-md-9">
 
       <div class="thumbnail">
-        <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+        <img class="img img-responsive" src="http://placehold.it/800x300" alt="">
         <div class="caption-full">
           <h4 class="pull-right">$24.99</h4>
           <h4><a href="#"><%= @provider.name %></a></h4>
@@ -21,14 +21,10 @@
           </div>
         </div>
         <div class="ratings">
-          <p class="pull-right">3 reviews</p>
+          <p class="pull-right"><%= "#{@surveys.count} evaluaciones" %></p>
           <p>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star"></span>
-              <span class="glyphicon glyphicon-star-empty"></span>
-              4.0 stars
+              <span class="stars" data-score=<%= @avg_stars %>></span>
+              <%= "#{@avg_stars} estrellas" %>
           </p>
         </div>
       </div>
