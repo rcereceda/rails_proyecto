@@ -10,29 +10,40 @@
 <div class="row">
   <% @providers.each do |provider| %>
     <div class="col-sm-6 col-md-4 col-lg-3">
+
       <div class="thumbnail">
-          <img src="http://placehold.it/320x150" alt="">
-          <div class="caption">
-              <h4 class="pull-right">$24.99</h4>
-              <h4><a href="#"><%= link_to provider.name, provider_path(provider.id) %></a></h4>
-              <ul>
-                <% provider.services.each do |service| %>
-                <li><%= service.name %></li>
-                <% end %>
-              </ul>
-          </div>
-          <div class="ratings">
-              <p class="pull-right">15 reviews</p>
-              <p>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-              </p>
-          </div>
+        <img class="img img-responsive" src="http://placehold.it/800x300" alt="">
+        <div class="caption">
+          <h4 class="pull-right">$24.99</h4>
+          <h4><%= link_to provider.name, provider_path(provider.id) %></h4>
+          <ul>
+            <% provider.services.each do |service| %>
+            <li><%= service.name %></li>
+            <% end %>
+          </ul>
+          <p><%= provider.address %></p>
+        </div>
+        <div class="ratings">
+          <p class="pull-right"><%= "#{provider.provider_reviews} evaluaciones" %></p>
+          <p>
+            <span class="stars" data-score=<%= provider.provider_score %>></span>
+          </p>
+        </div>
       </div>
+
     </div>
   <% end %>
 </div>
 <!-- /.row -->
+
+<script>
+  document.addEventListener("turbolinks:load", function() {
+    $('.stars').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+  });
+</script>

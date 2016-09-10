@@ -10,11 +10,13 @@
 <hr>
 
 <script>
-	$('#stars').raty({
-		path: '/assets/',
-		readOnly: true,
-		score: function() {
-			return $(this).attr('data-score');
-		}
+	document.addEventListener("turbolinks:load", function() {
+	  $('.stars').raty({
+	    path: '/assets/',
+	    readOnly: true,
+	    score: function() {
+	      return $(this).attr('data-score');
+	    }
+	  });
 	});
 </script>

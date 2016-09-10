@@ -19,4 +19,27 @@ class User < ActiveRecord::Base
   scope :on_address, ->(address) { where('address LIKE ?', "%#{address}%") }
   scope :has_service, ->(service_id) { joins(:user_services).where('user_services.service_id = ?', service_id) }
 
+
+  def provider_score
+    surveys = provider_surveys
+    if surveys.blank?
+      0
+    else
+      surveys.average(:stars).round(2).try(:to_f)
+    end
+  end
+
+  def provider_reviews
+    surveys = provider_surveys
+    if surveys.blank?
+      0
+    else
+      surveys.count
+    end
+  end
+
+  def provider_surveys
+    Survey.provider_surveys(self.id)
+  end
+
 end

@@ -20,17 +20,18 @@
             <%= link_to 'Pedir Servicio', new_provider_order_path(@provider), class:'btn btn-success' %>
           </div>
         </div>
+        <hr>
         <div class="ratings">
-          <p class="pull-right"><%= "#{@surveys.count} evaluaciones" %></p>
+          <p class="pull-right"><%= "#{@provider.provider_reviews} evaluaciones" %></p>
           <p>
-              <span class="stars" data-score=<%= @avg_stars %>></span>
-              <%= "#{@avg_stars} estrellas" %>
+              <span class="stars" data-score=<%= @provider.provider_score %>></span>
+              <%= "#{@provider.provider_score} estrellas" %>
           </p>
         </div>
       </div>
 
       <div class="well">
-        <% @surveys.each do |survey| %>
+        <% @provider.provider_surveys.each do |survey| %>
           
             <div class="row">
               <div class="col-md-12">
@@ -53,11 +54,13 @@
 </div>
 
 <script>
-  $('.stars').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
+  document.addEventListener("turbolinks:load", function() {
+    $('.stars').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
   });
 </script>

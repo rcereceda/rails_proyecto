@@ -5,11 +5,9 @@ one:
   description: MyString
   information: MyText
   user_id: 
-  state_id:
 
 two:
   date: 2016-07-25 18:52:22
   description: MyString
   information: MyText
   user_id: 
-  state_id: 

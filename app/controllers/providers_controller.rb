@@ -14,16 +14,14 @@ class ProvidersController < ApplicationController
   	if service.present?
   		@providers = @providers.has_service(service)
   	end
+
+    if @providers.blank?
+      flash[:notice] = "No hemos encontrado resultados..."
+    end
   end
 
   def show
-  	@surveys = Survey.provider_surveys(@provider.id)
-
-    if @surveys.blank?
-      @avg_stars = 0
-    else
-      @avg_stars = @surveys.average(:stars).round(2)
-    end
+  	
   end
 
   private
