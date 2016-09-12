@@ -1,0 +1,8 @@
+<span>
+  <%= f.check_box :_destroy,
+	      { :checked => f.object.persisted? },
+	      '0', '1'
+	%>
+	<%= f.label :_destroy, f.object.service_name %>
+	<%= f.hidden_field :service_id %>
+</span>

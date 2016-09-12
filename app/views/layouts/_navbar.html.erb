@@ -23,10 +23,10 @@
               </ul>
             </li>
           <% else %>
+            <%= link_to 'Publica tus Servicios', new_user_registration_path(:is_provider => '1'), class:'btn btn-success navbar-btn' %>
             <li><%= link_to "Ingresar", new_user_session_path %></li>
-            <li><%= link_to "Registrarse", new_user_registration_path %></li>
+            <li><%= link_to "Registrate", new_user_registration_path %></li>
           <% end %>
-
         </ul>
       </div>
         <!-- /.navbar-collapse -->
