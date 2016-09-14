@@ -1,0 +1,49 @@
+<div class="form-group">
+  <p><strong>¿Qué días estarás disponible?</strong></p>
+  <%= f.label :monday, 'Lunes' %>
+  <%= f.check_box :monday %>
+  <%= f.label :tuesday, 'Martes' %>
+  <%= f.check_box :tuesday %>
+  <%= f.label :wednesday, 'Miércoles' %>
+  <%= f.check_box :wednesday %>
+  <%= f.label :thursday, 'Jueves' %>
+  <%= f.check_box :thursday %>
+  <%= f.label :friday, 'Viernes' %>
+  <%= f.check_box :friday %>
+  <%= f.label :saturday, 'Sábado' %>
+  <%= f.check_box :saturday %>
+  <%= f.label :sunday, 'Domingo' %>
+  <%= f.check_box :sunday %>
+</div>
+<div class="form-group">
+  <p><strong>¿En qué horarios estarás disponible?</strong></p>
+  <%= f.label :starttime, 'Empezar' %>
+  <div class='input-group date' id='starttime'>
+    <%= f.time_field :starttime, class:'form-control' %>
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.label :endtime, 'Terminar' %>
+  <div class='input-group date' id='endtime'>
+    <%= f.time_field :endtime, class:'form-control' %>
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $('#starttime').datetimepicker({
+      locale: 'es',
+      format: 'LT'
+    });
+    $('#endtime').datetimepicker({
+      locale: 'es',
+      format: 'LT'
+    });
+  });
+</script>

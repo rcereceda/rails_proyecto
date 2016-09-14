@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826232325) do
+ActiveRecord::Schema.define(version: 20160912235050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,11 +41,19 @@ ActiveRecord::Schema.define(version: 20160826232325) do
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "schedules", force: :cascade do |t|
-    t.datetime "starttime"
-    t.datetime "endtime"
+    t.time     "starttime"
+    t.time     "endtime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.boolean  "active"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
   end
 
   add_index "schedules", ["user_id"], name: "index_schedules_on_user_id", using: :btree

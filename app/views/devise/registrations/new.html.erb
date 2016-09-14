@@ -53,8 +53,12 @@
                 <%= render "user_service_fields", :f => builder %>
               <% end %>
             </div>
-          <% end %>
 
+            <%= f.fields_for :schedule do |builder| %>
+              <%= render "schedule_fields", :f => builder %>
+            <% end %>
+          <% end %>
+          
           <div class="form-group">
             <%= f.submit "Sign up", class:'btn btn-success' %>
           </div>

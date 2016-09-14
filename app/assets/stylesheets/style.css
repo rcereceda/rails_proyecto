@@ -35,6 +35,20 @@ body {
   color: #333;
 }
 
+.thumbnail .avatar {
+  padding: 25px 20px 15px 20px;
+}
+
+.img-md {
+  width: 128px;
+  height: 128px;
+}
+
+.img-lg {
+  width: 256px;
+  height: 256px;
+}
+
 footer {
   margin: 50px 0;
 }

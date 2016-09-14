@@ -309,3 +309,11 @@ LOG:  received smart shutdown request
 LOG:  autovacuum launcher shutting down
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2016-09-12 22:09:21 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  column "user_id" does not exist at character 63
+STATEMENT:  SELECT  "users".* FROM "users" WHERE (is_provider =  true AND user_id != 110)  ORDER BY "users"."created_at" DESC LIMIT 8
+ERROR:  column reference "id" is ambiguous at character 133
+STATEMENT:  SELECT "users".* FROM "users" INNER JOIN "user_services" ON "user_services"."user_id" = "users"."id" WHERE (is_provider =  true AND id != 110) AND (user_services.service_id = '16')

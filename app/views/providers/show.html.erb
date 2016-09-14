@@ -1,17 +1,40 @@
 <div class="row">
 
   <div class="col-md-3">
-    <div class="list-group">
-      <a href="#" class="list-group-item active">Category 1</a>
-      <a href="#" class="list-group-item">Category 2</a>
-      <a href="#" class="list-group-item">Category 3</a>
+    
+    <div class="thumbnail">
+      <div class="caption-full text-center">
+        <h4>¿Cuándo estoy disponible?</h4>
+        <% if @schedule.present? %>
+          <p>
+            De <%= "#{@schedule.starttime.strftime('%H:%M')} a #{@schedule.endtime.strftime('%H:%M')}" %> horas
+          </p>
+          <p>
+            Puedo ayudarte los días:
+          </p>
+          <p>
+            <%= '#Lunes' if @schedule.monday %>
+            <%= '#Martes' if @schedule.tuesday %>
+            <%= '#Miércoles' if @schedule.wednesday %>
+            <%= '#Jueves' if @schedule.thursday %>
+            <%= '#Viernes' if @schedule.friday %>
+            <%= '#Sábado' if @schedule.saturday %>
+            <%= '#Domingo' if @schedule.sunday %>
+          </p>
+        <% else %>
+          <p>Aún no he definido mis horarios</p>
+        <% end %>
+      </div>
     </div>
+
   </div>
 
   <div class="col-md-9">
 
       <div class="thumbnail">
-        <img class="img img-responsive" src="http://placehold.it/800x300" alt="">
+        <div class="avatar text-center">
+          <img class="img-lg img-circle" src="https://placehold.it/300x300">
+        </div>
         <div class="caption-full">
           <h4 class="pull-right">$24.99</h4>
           <h4><a href="#"><%= @provider.name %></a></h4>

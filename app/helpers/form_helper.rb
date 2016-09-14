@@ -10,6 +10,7 @@ module FormHelper
   	Service.all.each do |service|
   		provider.user_services.build(:service => service)
   	end
+  	provider.schedule ||= Schedule.new
   	provider
   end
 end

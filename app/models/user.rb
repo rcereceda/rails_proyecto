@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_one :schedule
+  has_one :schedule, dependent: :destroy
   
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
   has_many :providers, through: :orders
 
   accepts_nested_attributes_for :user_services, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :schedule
 
   scope :providers, -> { where(is_provider: true) }
   scope :on_address, ->(address) { where('address LIKE ?', "%#{address}%") }
   scope :has_service, ->(service_id) { joins(:user_services).where('user_services.service_id = ?', service_id) }
-
 
   def provider_score
     surveys = provider_surveys
