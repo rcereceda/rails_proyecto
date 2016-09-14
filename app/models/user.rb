@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   scope :on_address, ->(address) { where('address LIKE ?', "%#{address}%") }
   scope :has_service, ->(service_id) { joins(:user_services).where('user_services.service_id = ?', service_id) }
 
+  mount_uploader :photo, PhotoUploader
+
   def provider_score
     surveys = provider_surveys
     if surveys.blank?

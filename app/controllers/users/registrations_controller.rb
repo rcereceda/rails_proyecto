@@ -42,7 +42,7 @@ before_action :configure_sign_up_params, only: [:create]
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address, :phone, :is_provider, user_services_attributes: [:id, :service_id, :_destroy], schedule_attributes: [:starttime, :endtime, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address, :phone, :photo, :is_provider, user_services_attributes: [:id, :service_id, :_destroy], schedule_attributes: [:starttime, :endtime, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
