@@ -2,6 +2,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 
+  def facebook
+    # Attempt to find the User
+    @user = User.find_for_facebook_oauth(
+    request.env["omniauth.auth"] )
+    if @user.persisted?
+      flash[:notice] = "Has ingresado via Facebook" 
+      sign_in_and_redirect @user, :event => :authentication
+    else
+      redirect_to new_user_registration_url
+    end 
+  end
+
   # You should also create an action method in this controller like this:
   # def twitter
   # end

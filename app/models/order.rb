@@ -37,4 +37,17 @@ class Order < ActiveRecord::Base
       transitions from: :confirmed, to: :rejected
     end
   end
+
+  def status
+    case self.aasm_state
+    when 'pending'
+      'Enviada'
+    when 'confirmed'
+      'Confirmada'
+    when 'finished'
+      'Finalizada'
+    when 'rejected'
+      'Cancelada'
+    end
+  end
 end

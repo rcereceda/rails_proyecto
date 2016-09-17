@@ -21,7 +21,7 @@
           <% end %>
         </td>
         <td><%= order.description %></td>
-        <td><%= order.aasm_state %></td>
+        <td><%= order.status %></td>
         <% if current_user.is_provider? %>
           <td><%= link_to 'Ver', provider_order_path(current_user.id, order.id) %></td>
           <% if order.pending? %>

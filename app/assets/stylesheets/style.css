@@ -39,6 +39,11 @@ body {
   padding: 25px 20px 15px 20px;
 }
 
+.img-xs {
+  width: 32px;
+  height: 32px;
+}
+
 .img-md {
   width: 128px;
   height: 128px;
