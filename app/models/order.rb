@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   has_many :order_services, dependent: :destroy
   has_many :user_services, through: :order_services
   
-  has_one :survey
+  has_one :survey, dependent: :destroy
 
   accepts_nested_attributes_for :order_services, :reject_if => :all_blank, :allow_destroy => true
 

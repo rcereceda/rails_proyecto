@@ -12,6 +12,7 @@
  *
  *= require jquery-ui
  *= require bootstrap-datetimepicker
+ *= stub active_admin
  *= require_tree .
  *= require_self
  */

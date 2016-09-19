@@ -13,10 +13,12 @@ Service.destroy_all
 services = Service.create([{ name: 'Gasfiter (agua)' }, { name: 'Gasfiter (gas)' }, { name: 'Electricista' }])
 
 users = []
-10.times do
+20.times do
 	users << User.create(email: "#{Faker::Name.first_name.downcase}@gmail.com", password: '123456', name: Faker::Name.name, address: Faker::Address.street_address, phone: Faker::PhoneNumber.cell_phone, is_provider: true)
 end
 
-10.times do |i|
+30.times do |i|
 	UserService.create(user: users[i], service: services.sample)
 end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

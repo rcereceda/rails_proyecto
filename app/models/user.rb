@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
   
-  has_many :orders, -> { order(aasm_state: :asc) }
+  has_many :orders, -> { order(aasm_state: :asc) }, dependent: :destroy
   has_many :providers, through: :orders
 
   accepts_nested_attributes_for :user_services, :reject_if => :all_blank, :allow_destroy => true
