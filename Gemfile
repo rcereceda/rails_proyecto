@@ -40,6 +40,7 @@ gem 'aasm'
 gem 'chartkick'
 gem 'groupdate'
 gem 'activeadmin', github: 'activeadmin'
+gem "bullet", :group => "development"
 
 gem 'puma'
 

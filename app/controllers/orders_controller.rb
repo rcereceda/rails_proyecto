@@ -7,9 +7,9 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     unless current_user.is_provider?
-      @orders = current_user.orders
+      @orders = current_user.orders.includes(:order_services)
     else
-      @orders = Order.provider_orders(current_user.id)
+      @orders = Order.provider_orders(current_user.id).includes(:order_services)
       @orders_chart = @orders.group_by_day(:date).count
       @orders = @orders.order(aasm_state: :asc)
     end

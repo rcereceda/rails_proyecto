@@ -5,7 +5,7 @@ class ProvidersController < ApplicationController
   	service = params[:service]
   	address = params[:address]
 
-  	@providers = User.providers
+  	@providers = User.providers.includes(:services)
 
   	if address.present?
   		@providers = @providers.on_address(address)
