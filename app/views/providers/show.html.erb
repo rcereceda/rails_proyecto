@@ -1,3 +1,7 @@
+<% # Meta information for the <head> section %>
+<% title @provider.name %>
+<% meta_tag :description, @provider.services.map { |service| service.name } %>
+
 <div class="row">
 
   <div class="col-md-3">

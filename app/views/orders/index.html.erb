@@ -1,5 +1,9 @@
 <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
 
+<% # Meta information for the <head> section %>
+<% title "Pedidos de #{current_user.name}" %>
+<% meta_tag :description, "Pedidos de #{current_user.name}" %>
+
 <h1>Pedidos</h1>
 
 <table class="table table-striped">

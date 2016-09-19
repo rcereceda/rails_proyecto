@@ -21,7 +21,7 @@ class ProvidersController < ApplicationController
   end
 
   def show
-  	@schedule = @provider.schedule
+    @schedule = @provider.schedule
   end
 
   private
