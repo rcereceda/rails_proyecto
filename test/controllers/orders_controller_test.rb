@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
   setup do
     @order = orders(:one)
+    @user = user(:one)
   end
 
   test "should get index" do
@@ -25,6 +28,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should show order" do
+    sign_in @user
     get :show, id: @order
     assert_response :success
   end
