@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
       @orders = current_user.orders
     else
       @orders = Order.provider_orders(current_user.id)
+      @orders_chart = @orders.group_by_day(:date).count
+      @orders = @orders.order(aasm_state: :asc)
     end
   end
 

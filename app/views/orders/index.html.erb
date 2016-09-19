@@ -1,3 +1,5 @@
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
 <h1>Pedidos</h1>
 
 <table class="table table-striped">
@@ -52,3 +54,9 @@
     <% end %>
   </tbody>
 </table>
+
+<% if current_user.is_provider? %>
+  <hr>
+  <h3>Resumen de Pedidos Recibidos</h3>
+  <%= line_chart @orders_chart %>
+<% end %>
