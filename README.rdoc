@@ -1,28 +1,19 @@
-== README
+= \Trabajala - Marketplace de Servicios Persona a Persona
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Configuración básica
 
-Things you may want to cover:
+Para funcionar, esta aplicación necesita:
+- Rails 4.2.6
+- PostgreSQL 9.5.2
 
-* Ruby version
+Para instalar todas las dependencias de gemas, ejecutar:
+  $ bundle install
 
-* System dependencies
+Para realizar las migraciones de la base de datos, ejecutar:
+  $ rake db:migrate
 
-* Configuration
+En caso de no haberse creado antes la base de datos, ejecutar:
+  $ rake db:create
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Una vez creada la base de datos y realizadas las migraciones, se debe cargar el seed para poder cargar los datos en los modelos principales, ejecutando:
+  $ rake db:seed
