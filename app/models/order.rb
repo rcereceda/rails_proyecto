@@ -15,7 +15,6 @@ class Order < ActiveRecord::Base
   delegate :name, to: :provider, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
 
-  #scope :provider_orders, ->(provider_id) { where(provider_id: provider_id).order(aasm_state: :asc) }
   scope :provider_orders, ->(provider_id) { where(provider_id: provider_id) }
 
   aasm do

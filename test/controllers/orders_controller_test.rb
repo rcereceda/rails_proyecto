@@ -5,26 +5,30 @@ class OrdersControllerTest < ActionController::TestCase
 
   setup do
     @order = orders(:one)
-    @user = user(:one)
+    @user = users(:one)
+    @provider = users(:two)
   end
 
   test "should get index" do
-    get :index
+    sign_in @user
+    get :index, user_id: @user.id
     assert_response :success
     assert_not_nil assigns(:orders)
   end
 
   test "should get new" do
-    get :new
+    sign_in @user
+    get :new, provider_id: @user.id
     assert_response :success
   end
 
   test "should create order" do
+    sign_in @user
     assert_difference('Order.count') do
-      post :create, order: {  }
+      post :create, provider_id: @provider.id, order: { date: '01/01/2017', description: 'descripción', information: 'información', provider_id: @provider.id }
     end
 
-    assert_redirected_to order_path(assigns(:order))
+    assert_redirected_to provider_order_path(@provider.id, assigns(:order))
   end
 
   test "should show order" do
@@ -34,20 +38,23 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @order
+    sign_in @user
+    get :edit, id: @order, provider_id: @provider.id
     assert_response :success
   end
 
   test "should update order" do
-    patch :update, id: @order, order: {  }
-    assert_redirected_to order_path(assigns(:order))
+    sign_in @user
+    patch :update, id: @order, provider_id: @provider.id, order: { date: '01/01/2017', description: 'descripción', information: 'información' }
+    assert_redirected_to user_orders_path(@user.id)
   end
 
   test "should destroy order" do
+    sign_in @user
     assert_difference('Order.count', -1) do
-      delete :destroy, id: @order
+      delete :destroy, id: @order, user_id: @user.id
     end
 
-    assert_redirected_to orders_path
+    assert_redirected_to user_orders_path
   end
 end
