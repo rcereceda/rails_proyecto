@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: rails_project_production
-  username: ubuntu
-  password: <%= ENV['SERVICESAPP_DATABASE_PASSWORD'] %>
+  # database: rails_project_production
+  # username: ubuntu
+  # password: <%= ENV['SERVICESAPP_DATABASE_PASSWORD'] %>
