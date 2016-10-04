@@ -40,7 +40,6 @@
           <%= image_tag @provider.photo, class:"img-lg img-circle" %>
         </div>
         <div class="caption-full">
-          <h4 class="pull-right">$24.99</h4>
           <h4><a href="#"><%= @provider.name %></a></h4>
           <p>¿Quieres hacer un pedido?</p>
           <div class="text-left">
@@ -83,7 +82,9 @@
 <script>
   document.addEventListener("turbolinks:load", function() {
     $('.stars').raty({
-      path: '/assets/',
+      starOn: '<%= image_path('star-on.png') %>',
+      starOff: '<%= image_path('star-off.png') %>',
+      path: '',
       readOnly: true,
       score: function() {
         return $(this).attr('data-score');

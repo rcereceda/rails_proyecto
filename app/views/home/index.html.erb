@@ -43,7 +43,6 @@
           <%= image_tag provider.photo.thumb, class:"img-md img-circle" %>
         </div>
         <div class="caption">
-          <h4 class="pull-right">$24.99</h4>
           <h4><%= link_to provider.name, provider_path(provider.id) %></h4>
           <ul>
             <% provider.services.each do |service| %>
@@ -68,7 +67,9 @@
 <script>
   document.addEventListener("turbolinks:load", function() {
     $('.stars').raty({
-      path: '/assets/',
+      starOn: '<%= image_path('star-on.png') %>',
+      starOff: '<%= image_path('star-off.png') %>',
+      path: '',
       readOnly: true,
       score: function() {
         return $(this).attr('data-score');
