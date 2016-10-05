@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
 
   mount_uploader :photo, PhotoUploader
 
+  def default_photo
+    "fallback/male_#{(id % 8)+1}.png"
+  end
+
   def provider_score
     surveys = provider_surveys
     if surveys.blank?

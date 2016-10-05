@@ -18,7 +18,7 @@
 
       <div class="thumbnail">
         <div class="avatar text-center">
-          <%= image_tag provider.photo.thumb, class:"img-md img-circle" %>
+          <%= image_tag provider.photo.present? ? provider.photo.thumb : provider.default_photo, class:"img-md img-circle" %>
         </div>
         <div class="caption">
           <h4><%= link_to provider.name, provider_path(provider.id) %></h4>

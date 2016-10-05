@@ -37,7 +37,7 @@
 
       <div class="thumbnail">
         <div class="avatar text-center">
-          <%= image_tag @provider.photo, class:"img-lg img-circle" %>
+          <%= image_tag @provider.photo.present? ? @provider.photo : @provider.default_photo, class:"img-lg img-circle" %>
         </div>
         <div class="caption-full">
           <h4><a href="#"><%= @provider.name %></a></h4>

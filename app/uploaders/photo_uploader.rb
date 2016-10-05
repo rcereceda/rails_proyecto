@@ -23,6 +23,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   
     # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
     "fallback/default.png"
+    # "fallback/male_#{rand(8)+1}.png"
   end
 
   # Process files as they are uploaded:
