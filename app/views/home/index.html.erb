@@ -67,6 +67,7 @@
 <script>
   document.addEventListener("turbolinks:load", function() {
     $('.stars').raty({
+      starHalf: '<%= image_path('star-half.png') %>',
       starOn: '<%= image_path('star-on.png') %>',
       starOff: '<%= image_path('star-off.png') %>',
       path: '',
